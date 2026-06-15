@@ -1,0 +1,24 @@
+---
+layout: default
+title: "விஷ்ணு | Vishnu"
+---
+<div class="category-header">
+  <div class="icon">🪷</div>
+  <h1>விஷ்ணு | Vishnu</h1>
+  <p>நாராயணீயம், விஷ்ணு சஹஸ்ரநாமம், திருப்பாவை மற்றும் அனைத்து விஷ்ணு பாடல்கள்</p>
+</div>
+<div class="posts-grid">
+{% assign posts = site.posts | where: "category", "vishnu" %}
+{% for post in posts %}
+<div class="post-card">
+  <div class="post-card-thumb">🪷</div>
+  <div class="post-card-body">
+    <div class="post-card-category">VISHNU</div>
+    <div class="post-card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+    <div class="post-card-date">{{ post.date | date: "%d %b %Y" }}</div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% assign posts = site.posts | where: "category", "vishnu" %}
+{% if posts.size == 0 %}<p class="text-center" style="color:#7A6050;margin-top:2rem;">விரைவில் பதிவுகள் வரும்... Coming soon!</p>{% endif %}
