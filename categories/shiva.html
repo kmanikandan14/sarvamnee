@@ -1,0 +1,24 @@
+---
+layout: default
+title: "சிவன் | Shiva"
+---
+<div class="category-header">
+  <div class="icon">🌙</div>
+  <h1>சிவன் | Shiva</h1>
+  <p>தேவாரம், திருவாசகம், சிவ ஸ்தோத்திரங்கள், பிரதோஷம் மற்றும் அனைத்து சிவன் பாடல்கள்</p>
+</div>
+<div class="posts-grid">
+{% assign posts = site.posts | where: "category", "shiva" %}
+{% for post in posts %}
+<div class="post-card">
+  <div class="post-card-thumb">🌙</div>
+  <div class="post-card-body">
+    <div class="post-card-category">SHIVA</div>
+    <div class="post-card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+    <div class="post-card-date">{{ post.date | date: "%d %b %Y" }}</div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% assign posts = site.posts | where: "category", "shiva" %}
+{% if posts.size == 0 %}<p class="text-center" style="color:#7A6050;margin-top:2rem;">விரைவில் பதிவுகள் வரும்... Coming soon!</p>{% endif %}
