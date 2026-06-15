@@ -1,0 +1,40 @@
+---
+layout: default
+title: "YouTube Videos"
+---
+
+<div class="category-header">
+  <div class="icon">▶️</div>
+  <h1>YouTube Archive</h1>
+  <p>சர்வம் நீ YouTube Channel — அனைத்து வீடியோக்கள்</p>
+</div>
+
+<div class="youtube-grid">
+{% assign yt_posts = site.posts | where_exp: "post", "post.youtube_id" %}
+{% for post in yt_posts %}
+<div class="yt-card">
+  <div class="yt-thumb-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/{{ post.youtube_id }}"
+      title="{{ post.title }}"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+  <div class="yt-card-body">
+    <div class="yt-card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+    <div class="yt-card-meta">{{ post.category | upcase }} · {{ post.date | date: "%d %b %Y" }}</div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+{% assign yt_posts = site.posts | where_exp: "post", "post.youtube_id" %}
+{% if yt_posts.size == 0 %}
+<p class="text-center" style="color:#7A6050; margin-top:2rem;">
+  Videos coming soon! Subscribe on
+  <a href="https://www.youtube.com/@SarvamNee" target="_blank" rel="noopener">YouTube → SarvamNee</a>
+</p>
+{% endif %}
