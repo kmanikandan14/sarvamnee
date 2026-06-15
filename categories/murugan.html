@@ -1,0 +1,31 @@
+---
+layout: default
+title: "முருகன் | Murugan"
+---
+
+<div class="category-header">
+  <div class="icon">🦚</div>
+  <h1>முருகன் | Murugan</h1>
+  <p>முருகன் போற்றிகள், கந்த சஷ்டி கவசம், திருப்புகழ் மற்றும் அனைத்து முருகன் பாடல்கள்</p>
+</div>
+
+<div class="posts-grid">
+{% assign murugan_posts = site.posts | where: "category", "murugan" %}
+{% for post in murugan_posts %}
+<div class="post-card">
+  <div class="post-card-thumb">🦚</div>
+  <div class="post-card-body">
+    <div class="post-card-category">MURUGAN</div>
+    <div class="post-card-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </div>
+    <div class="post-card-date">{{ post.date | date: "%d %b %Y" }}</div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+{% assign murugan_posts = site.posts | where: "category", "murugan" %}
+{% if murugan_posts.size == 0 %}
+<p class="text-center" style="color:#7A6050; margin-top:2rem;">விரைவில் பதிவுகள் வரும்... Coming soon!</p>
+{% endif %}
