@@ -1,0 +1,34 @@
+title: "SarvamNee | சர்வம் நீ"
+description: "Tamil Devotional Content - Slokas, Stotras, Pottrigal & YouTube Videos"
+url: "https://kmanikandan14.github.io"
+baseurl: "/sarvamnee"
+
+author: "SarvamNee"
+lang: "ta"
+
+theme: null
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+collections:
+  categories:
+    output: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - generate_posts.py
+  - playlist.csv
