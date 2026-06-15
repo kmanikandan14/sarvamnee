@@ -1,0 +1,24 @@
+---
+layout: default
+title: "நாராயணீயம் | Narayaniyam"
+---
+<div class="category-header">
+  <div class="icon">📿</div>
+  <h1>நாராயணீயம் | Narayaniyam</h1>
+  <p>100 தசகங்கள் — ஒவ்வொன்றும் விஷ்ணுவின் ஒரு கதையை விளக்குகிறது</p>
+</div>
+<div class="posts-grid">
+{% assign posts = site.posts | where: "category", "narayaniyam" %}
+{% for post in posts %}
+<div class="post-card">
+  <div class="post-card-thumb">📿</div>
+  <div class="post-card-body">
+    <div class="post-card-category">NARAYANIYAM</div>
+    <div class="post-card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+    <div class="post-card-date">{{ post.date | date: "%d %b %Y" }}</div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% assign posts = site.posts | where: "category", "narayaniyam" %}
+{% if posts.size == 0 %}<p class="text-center" style="color:#7A6050;margin-top:2rem;">விரைவில் பதிவுகள் வரும்... Coming soon!</p>{% endif %}
