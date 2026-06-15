@@ -1,0 +1,86 @@
+---
+layout: default
+title: "முகப்பு"
+---
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-om">ॐ</div>
+  <h1>சர்வம் நீ | SarvamNee</h1>
+  <p>முருகன், சிவன், விஷ்ணு, அம்மன் — பக்தி பாடல்கள், ஸ்லோகங்கள் மற்றும் உங்கள் YouTube வீடியோக்கள்</p>
+</section>
+
+<div class="container" style="padding-top:0">
+
+  <!-- CATEGORY CARDS -->
+  <h2 class="section-title">வகைகள் | Categories</h2>
+  <div class="categories-grid">
+    <a class="category-card" href="{{ '/categories/murugan' | relative_url }}">
+      <div class="icon">🦚</div>
+      <span class="name-ta">முருகன்</span>
+      <span class="name-en">Murugan</span>
+    </a>
+    <a class="category-card" href="{{ '/categories/shiva' | relative_url }}">
+      <div class="icon">🌙</div>
+      <span class="name-ta">சிவன்</span>
+      <span class="name-en">Shiva</span>
+    </a>
+    <a class="category-card" href="{{ '/categories/vishnu' | relative_url }}">
+      <div class="icon">🪷</div>
+      <span class="name-ta">விஷ்ணு</span>
+      <span class="name-en">Vishnu</span>
+    </a>
+    <a class="category-card" href="{{ '/categories/amman' | relative_url }}">
+      <div class="icon">🔱</div>
+      <span class="name-ta">அம்மன்</span>
+      <span class="name-en">Amman</span>
+    </a>
+    <a class="category-card" href="{{ '/categories/narayaniyam' | relative_url }}">
+      <div class="icon">📿</div>
+      <span class="name-ta">நாராயணீயம்</span>
+      <span class="name-en">Narayaniyam</span>
+    </a>
+    <a class="category-card" href="{{ '/categories/thevaram' | relative_url }}">
+      <div class="icon">🎵</div>
+      <span class="name-ta">தேவாரம்</span>
+      <span class="name-en">Thevaram</span>
+    </a>
+    <a class="category-card" href="{{ '/categories/viratham' | relative_url }}">
+      <div class="icon">🪔</div>
+      <span class="name-ta">விரதங்கள்</span>
+      <span class="name-en">Viratham</span>
+    </a>
+    <a class="category-card" href="{{ '/youtube' | relative_url }}">
+      <div class="icon">▶️</div>
+      <span class="name-ta">YouTube</span>
+      <span class="name-en">Videos</span>
+    </a>
+  </div>
+
+  <!-- RECENT POSTS -->
+  <h2 class="section-title">சமீபத்திய பதிவுகள் | Recent Posts</h2>
+  <div class="posts-grid">
+    {% for post in site.posts limit:9 %}
+    <div class="post-card">
+      <div class="post-card-thumb">
+        {% if post.category == 'murugan' %}🦚
+        {% elsif post.category == 'shiva' %}🌙
+        {% elsif post.category == 'vishnu' %}🪷
+        {% elsif post.category == 'amman' %}🔱
+        {% elsif post.category == 'narayaniyam' %}📿
+        {% elsif post.category == 'thevaram' %}🎵
+        {% elsif post.category == 'viratham' %}🪔
+        {% else %}🙏{% endif %}
+      </div>
+      <div class="post-card-body">
+        <div class="post-card-category">{{ post.category | upcase }}</div>
+        <div class="post-card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </div>
+        <div class="post-card-date">{{ post.date | date: "%d %b %Y" }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
